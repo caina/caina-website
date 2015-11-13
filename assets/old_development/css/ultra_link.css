@@ -1,0 +1,38 @@
+.ultra .row:first-child .item_show{
+	height: 240px !important;
+}
+.ultra .item_show{
+	overflow: hidden;
+	height: 300px;
+	margin: 0 2px 2px 2px;
+}
+.ultra .item_show img{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.ultra .item_show:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+   	opacity: 0.4;
+    filter: alpha(opacity=40);
+    position: absolute;
+    z-index: 1;
+
+}
+
+.ultra .item_show img{transition: all .4s ease-out; }
+.ultra .item_show:hover img { transform: scale(1.1); }
+
+.ultra .item_show .over_hero{
+    position: absolute;
+    top: 10px;
+    margin: 20px;
+     z-index: 5;
+    color: #fff;
+}
+.no-padding{
+	padding: 0px !important;
+}
