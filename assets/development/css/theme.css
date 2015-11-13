@@ -1,36 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 /* 00 corpo*/
 body{
 	background-image: url("../images/patter_nice.png");
 	/*background-image: url("../images/wave.jpg");*/
-
 	/*background-color: #f2f2eb;*/
 }
-
 h1, h2,h3{
 	font-weight: bold;
 }
 h1, h2,h3,p,a{
-	font-family: 'Roboto Condensed', sans-serif;
-}
-.menu-container-fluid{
-	 /*background-image: url('../upload/2a3a46fee10588594f5e8069dbd33165_DSC_8999.JPG');*/
-    /*background-position: right bottom 30%;*/
-    height: 350px;
+	font-family: 'Montserrat', sans-serif;
 }
 .content-padding{
 	padding: 20px 20px 0px 0px;
 }
-
 .bg-white{
 	background-color: #fff;
 }
-
-
 .no-padding{
 	padding: 0px !important; 
 }
+.padding-100{
+	padding: 100px;
+}
+
 
 /* 01 - Menu*/
+.menu-container-fluid{
+    height: 350px;
+}
 .menu .content-padding{
 	padding: 60px 20px 0px 0px;
 }
@@ -40,36 +39,27 @@ h1, h2,h3,p,a{
 }
 .menu .navbar-right li:hover a{
 	padding: 4px 5px;
-
 }
-
-.nav>li>a:focus, .nav>li>a:hover{
-	background-color: none;
-
-}
-
 .nav>li{
 	transition: all .2s ease-in;
 }
-
 .nav>li:hover{
 	border-top: 3px solid #000;
 	border-bottom: 3px solid #000;
 }
-
-.nav>li:hover a{
-	padding-top: 12px;
-	padding-bottom: 12px;
-}
-
 .nav>li>a{
 	color: #141414;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	transition: all .1s ease-in;
 }
-
-
+.nav>li>a:focus, .nav>li>a:hover{
+	background-color: none;
+}
+.nav>li:hover a{
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
 .menu-container-fluid .breadcrumb-custom ul{
 	display: inline-block;
 	 list-style: none;
@@ -82,7 +72,6 @@ h1, h2,h3,p,a{
 	margin: 0px 5px;
 	transition: all .1s ease-out;
 }
-
 .menu-container-fluid .breadcrumb-custom ul li a{
 	color: #fff;
 	transition: all .1s ease-out;
@@ -99,6 +88,96 @@ h1, h2,h3,p,a{
 	padding-bottom: 0px;
 }
 
+
+
+
+
+/* 02 -BLOG*/
+.left_side .entry_image::before{
+	left: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+.right_side .entry_image::before{
+	right: 0px;
+   border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right:10px solid #fff; 
+}
+.blog_news_head .col-md-6{
+	height: 390px;
+}
+.blog_tools_box{
+	background-image: url("../images/pattern_bg.jpg");
+}
+.entry_image{
+	overflow: hidden;
+	padding: 0px !important;
+	max-height: 390px;
+}
+/*AQUELA SETA NAS IMAGENS*/
+.entry_image::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 80px;
+    z-index: 10;
+}
+.entry_image img{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 0;
+}
+.entry_title h3 a{
+	color: #141414;
+	    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.entry_date{
+	background: #A7A7A7;
+    padding: 3px;
+    color: #fff;
+}
+
+
+
+/*
+03 - ABOUT
+*/
+
+.full-picture{
+}
+.full-picture img{
+	width: 100%;
+}
+.about-description{
+
+}
+.about-description h1{
+	text-transform: uppercase;
+}
+.about-description span{
+	font-size: 24px;
+    text-align: justify;
+    line-height: 38px;
+    font-weight: 100;
+    color: #727272;
+}
+
+/* 10. RODAPÉ*/
+.footer{
+	background-color: #212121;
+	margin-top: 40px;
+}
+
+
+
+
+
+/*MOBILE! em desenvolvimento*/
 /*MEDIA QUERY AQUI PRA TIRAR ESSE PADDING DO MOBILE*/
 @media screen and (min-width: 992px) {
 	.navbar .container-fluid{
@@ -115,68 +194,4 @@ h1, h2,h3,p,a{
 	  display: -ms-flexbox;
 	  display:         flex;
 	}
-}
-
-/* 02 -BLOG*/
-.blog_news_head .col-md-6{
-	height: 390px;
-}
-.entry_image{
-	overflow: hidden;
-	padding: 0px !important;
-	max-height: 390px;
-}
-
-.blog_tools_box{
-	background-image: url("../images/pattern_bg.jpg");
-}
-.entry_title h3 a{
-	color: #141414;
-	    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.entry_image::before{
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 80px;
-    z-index: 10;
-    
-}
-.left_side .entry_image::before{
-	left: 0px;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid #fff;
-}
-
-.right_side .entry_image::before{
-	right: 0px;
-   border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent; 
-	border-right:10px solid #fff; 
-}
-
-
-.entry_image img{
-	width: 100%;
-	height: 100%;
-	position: relative;
-	z-index: 0;
-}
-
-/*DETALHE POST*/
-.entry_date{
-	background: #A7A7A7;
-    padding: 3px;
-    color: #fff;
-}
-
-
-/* 10. RODAPÉ*/
-.footer{
-	background-color: #212121;
-	margin-top: 40px;
 }

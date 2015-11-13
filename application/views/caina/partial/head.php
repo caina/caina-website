@@ -7,7 +7,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Douglas Caina</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,700italic' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
     <link href="<?php echo base_url("assets/css/min.css") ?>" rel="stylesheet">
 

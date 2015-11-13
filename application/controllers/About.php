@@ -18,6 +18,7 @@ class About extends DefaultController {
 	{
 		$this->data['featured_technology'] = $this->about->get_featured_technologies()->technology;
 		$this->data['about'] = $this->about->about;
+		// dump($this->data['about']);
 
 		$this->loadView("pages.about.about");		
 	}
