@@ -28,15 +28,17 @@ module.exports = function(grunt) {
 	        drop_console: true
 	      },
         mangle: {
-          except: ['jQuery', 'Backbone','container']
+          except: ['jQuery','container']
         },
         beautify: false
 	    },
 	    my_target: {
 	      files: {
-	        'assets/js/min.js': [
+          'assets/js/min.js': [
+              javascript_path+"jquery-2.1.4.min.js",
               javascript_path+'bootstrap.min.js',
-              javascript_path+"jquery-2.1.4.min.js"
+              javascript_path+'parallax.min.js',
+              javascript_path+'custom.js'
             ]
 	      }
 	    }

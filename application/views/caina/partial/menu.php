@@ -1,4 +1,4 @@
-<div class="container-fluid menu-container-fluid">
+<div class="container-fluid menu-container-fluid parallax-window" data-parallax="scroll" data-image-src="<?php echo image_url("background_website.png") ?>">
 	<div class="container">
 		<div class="row menu">
 			<div class="col-md-12 content-padding">

@@ -13,8 +13,8 @@ h1, h2,h3,p,a{
 	font-family: 'Roboto Condensed', sans-serif;
 }
 .menu-container-fluid{
-	 background-image: url('../upload/2a3a46fee10588594f5e8069dbd33165_DSC_8999.JPG');
-    background-position: right bottom 30%;
+	 /*background-image: url('../upload/2a3a46fee10588594f5e8069dbd33165_DSC_8999.JPG');*/
+    /*background-position: right bottom 30%;*/
     height: 350px;
 }
 .content-padding{
