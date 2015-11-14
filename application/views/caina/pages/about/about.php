@@ -1,4 +1,13 @@
 <div class="container">
+	<div class="row about-links">
+		<div class="col-md-12 breadcrumb-custom no-padding">
+			<ul>
+				<li> <a href="#">Sobre</a> </li>
+				<li> <a href="#">Técnologias</a> </li>
+				<li> <a href="#">Curriculo</a> </li>
+			</ul>
+		</div>
+	</div>
 	<div class="row bg-white">
 		<div class="col-md-4 full-picture no-padding">
 			<img src="<?php echo image_url($about->profile_photo) ?>">
@@ -12,5 +21,46 @@
 			</span>
 		</div>
 	</div>
-	
+
+	<div class="row bg-gray tecnologies">
+		<div class="col-md-4">
+			<div class="row featured_tech">
+			<?php foreach ($technologies as $tec):?>
+				<?php if($tec->is_featured!=1){continue;} ?>
+				<div class="col-md-6" style="background-color:<?php echo $tec->background_color ?>">
+					<a href="<?php echo $tec->link ?>" rel="tag">
+						<span class="col-md-12">
+							<img src="<?php echo image_url($tec->logo,100,100) ?>">
+						</span>
+						<span class="col-md-12">
+							<?php echo $tec->title ?>
+						</span>
+					</a>
+				</div>
+			<?php endforeach ?>
+		</div>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-12 technology-description">
+					<h2>Técnologias que eu conheço</h2>
+					<span>
+						Já trabalhei em divérsas áreas, em cada uma com um framework/linguagem diferente, listei aqui tudo com o que já trabalhei
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<?php foreach ($technologies as $tec):?>
+					<?php if($tec->is_featured==1){continue;} ?>
+					<div class="col-md-3 padding-10" style="background-color:<?php echo $tec->background_color ?>">
+						<a href="<?php echo $tec->link ?>" rel="tag">
+							<span class="col-md-12">
+								<img src="<?php echo image_url($tec->logo,100,100) ?>">
+							</span>
+						</a>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</div>
 </div>

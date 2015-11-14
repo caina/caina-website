@@ -11,6 +11,12 @@ class About_Model extends CI_Model {
 		
 	}
 
+	public function get_technologies()
+	{
+		$this->technology = $this->db->get('technology')->result();
+		return $this->prepare_technologies();
+	}
+
 	function get_featured_technologies(){
 		$this->technology = $this->db->get_where('technology', array("is_featured"=>1))->result();
 		return $this->prepare_technologies();

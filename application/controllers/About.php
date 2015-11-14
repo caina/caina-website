@@ -16,7 +16,7 @@ class About extends DefaultController {
 
 	public function index()
 	{
-		$this->data['featured_technology'] = $this->about->get_featured_technologies()->technology;
+		$this->data['technologies'] = $this->about->get_technologies()->technology;
 		$this->data['about'] = $this->about->about;
 		// dump($this->data['about']);
 
