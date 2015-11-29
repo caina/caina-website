@@ -35,16 +35,11 @@
 						
 				</div>
 			</div>
-
 			<?php 
 			foreach ($blog_posts as $post):
 				echo load_blog_article(false,$post);
 			endforeach
 			?>
-
-			
-			
-			
 			<!-- FIM CONTEUDO -->
 		</div>
 	</div>

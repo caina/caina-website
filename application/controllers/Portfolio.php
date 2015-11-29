@@ -10,19 +10,29 @@ class Portfolio extends DefaultController {
 
 	public function index()
 	{
-		$this->load->library('tiles');
+		$this->load->helper('Blog');
 		$this->load->model('portfolio_model');
 		$this->data['tecologias'] = $this->portfolio_model->get_categories()->technology;
-		foreach ($this->data['tecologias'] as $tech) {
-			$this->tiles->addTile($tech->title,false, image_url($tech->logo,400,400),2);
-		}
-		$this->data['tiles_html'] = $this->tiles->get_tiles();
+		$this->data['categories'] = $this->portfolio_model->get_portoflio_categories()->portfolio_categories; 
+		$this->data['portfolio'] = $this->portfolio_model->get_portfolio()->format_portfolio()->portfolio;
+
+		// dump($this->data['portfolio']);
+
 		$this->loadView("pages.portfolio.portfolio_home_view");
 	}
 
-	public function portfolio_detail($iten=false)
+	public function portfolio_detail($category=false,$portfolio_title)
 	{
-		$this->loadView("pages.portfolio.portfolio_detail_view");
+		$this->load->model('portfolio_model');
+		$this->data['portfolio'] = $this->portfolio_model->get_portfolio_detail($portfolio_title)->portfolio;
+		$this->data['categories'] = $this->portfolio_model->get_portoflio_categories()->portfolio_categories; 
+		
+		$this->data['seo_title'] = $this->data['portfolio']->title." - ".$this->data['portfolio']->category." - Portfolio ".$this->data['seo_title'];
+		$this->data['seo_description'] = word_limiter(strip_tags($this->data['portfolio']->description),20);
+		
+		// dump($this->data['portfolio']);
+
+		$this->loadView("pages.portfolio.detail_view");
 	}
 
 	function development_language(){
@@ -30,9 +40,17 @@ class Portfolio extends DefaultController {
 	}
 
 
-	public function development_language_detail($language='')
+	public function development_language_list($language='')
 	{
-		$this->loadView("pages.portfolio.development_language_detail_view");
+		$this->load->helper('Blog');
+		$this->load->model('portfolio_model');
+		$this->data['tecologias'] = $this->portfolio_model->get_categories()->technology;
+		$this->data['categories'] = $this->portfolio_model->get_portoflio_categories()->portfolio_categories; 
+		$this->data['portfolio'] = $this->portfolio_model->get_portfolio_by_tag($language)->format_portfolio()->portfolio; 
+		// dump($this->data['portfolios']);
+		// $this->loadView("pages.portfolio.tecnology_detail");
+		$this->loadView("pages.portfolio.portfolio_home_view");
+
 		
 	}
 

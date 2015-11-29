@@ -25,7 +25,7 @@ class About_Model extends CI_Model {
 
 	function prepare_technologies(){
 		foreach ($this->technology as &$tec) {
-			$tec->link = site_url("tecnologia/".strtourl($tec->title));
+			$tec->link = site_url("portfolio/tecnologia/".strtourl($tec->title));
 		}
 		return $this;
 	}

@@ -53,9 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] 			= 'blog/blog_home';
 $route["sobre"]							= "about/index";
 $route["blog/(:any)"]					= 'blog/blog_post_detail/$1';
-$route['portfolio/technologies'] 		= 'portfolio/development_language';
-$route['portfolio/technologies/(:any)'] = 'portfolio/development_language_detail/$1';
+$route['portfolio/tecnologia'] 			= 'portfolio/development_language';
+$route['portfolio/tecnologia/(:any)']   = 'portfolio/development_language_list/$1';
 $route["portfolio/(:any)"]				= "portfolio/portfolio_detail/$1";
+$route["portfolio/(:any)/(:any)"]		= "portfolio/portfolio_detail/$1/$2";
 $route['404_override'] 					= 'pages/page_404';
 
 

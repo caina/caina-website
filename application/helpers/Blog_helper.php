@@ -14,7 +14,9 @@ if (! function_exists('load_blog_article'))
 {
 	function load_blog_article($type=false,$blog_data)
 	{
-
+		if(empty($blog_data)){
+			return false;
+		}
 		
 		$ci =&get_instance();
 		if(!$type){
