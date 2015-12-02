@@ -55,8 +55,9 @@ $route["sobre"]							= "about/index";
 $route["blog/(:any)"]					= 'blog/blog_post_detail/$1';
 $route['portfolio/tecnologia'] 			= 'portfolio/development_language';
 $route['portfolio/tecnologia/(:any)']   = 'portfolio/development_language_list/$1';
-$route["portfolio/(:any)"]				= "portfolio/portfolio_detail/$1";
+$route["portfolio/(:any)"]				= "portfolio/portfolio_category/$1";
 $route["portfolio/(:any)/(:any)"]		= "portfolio/portfolio_detail/$1/$2";
+$route["contato"]						= "contact/index";
 $route['404_override'] 					= 'pages/page_404';
 
 

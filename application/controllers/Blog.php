@@ -11,16 +11,36 @@ class Blog extends DefaultController {
 		$this->load_widget();
 	}
 
+
+
+	
+
 	public function blog_home()
 	{	
 		$this->data['blog_posts'] = $this->blog->get_posts()->posts;
+		dump( $this->blog->pages_count);
 		$this->loadView("pages.blog.list_view");
 	}
 
+
+
+
+
+
 	public function blog_post_detail($post_title)
-	{
+	{	
+		$this->load->helper('html');
+		$this->load->model('Portfolio_model', 'portfolio');
 		$this->data['post'] =  $this->blog->get_post(url_to_id($post_title))->post;
-		$this->loadView("pages.blog.blog_post_detail");
+		
+		$this->data['portfolios'] = $this->portfolio->get_portfolio_by_tags($this->data['post']->tags_id)->portfolio;
+		// dump($this->data['portfolios']);
+
+		$this->set_title($this->data['post']->title);
+		$this->set_description($this->data['post']->eye);
+
+		// dump($this->data['post']);
+		$this->loadView("pages.blog.detail");
 	}
 
 

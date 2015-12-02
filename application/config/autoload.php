@@ -126,4 +126,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array("Blog_model"=>"blog");
+$autoload['model'] = array(array("Blog_model"=>"blog"),array("Contact_model"=>"configuration"));

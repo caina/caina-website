@@ -7,9 +7,9 @@ class Blog_model extends CI_Model {
 	public  $posts;
 	private $tags_param;
 	private $query_param;
-	private $pages_count;
+	public $pages_count;
 	public $blog_tags;
-	private $itens_per_page = 10;
+	private $itens_per_page = 4;
 	private $post_id;
 
 
@@ -71,6 +71,22 @@ class Blog_model extends CI_Model {
 		$this->post_id = $post_id;
 		$this->get_posts();
 		$this->post = end($this->posts);
+		$this->get_tags();
+		return $this;
+	}
+
+	function get_tags(){
+		$this->post->tags = $this->db->
+			select("blog_category.*")->
+			from("blog_category")->
+			join("blog_post_category","blog_category.id = blog_post_category.id_blog_category")->
+			where("blog_post_category.id_blog_post",$this->post->id)->get()->result();
+
+		$this->post->tags_id = array();
+		foreach ($this->post->tags as &$tag) {
+			$this->post->tags_id[] = $tag->id;
+			$tag->link = site_url("?q=".strtourl($tag->title));
+		}
 		return $this;
 	}
 

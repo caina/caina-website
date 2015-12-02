@@ -8,9 +8,18 @@ class DefaultController extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->data['seo_title'] = "Douglas Caina";
-		$this->data['seo_description'] = "";
+		$this->data['configuration'] = $this->configuration->get_data()->contact_data;
+		
+		$this->data['seo_title'] = $this->configuration->contact_data->website_title;
+		$this->data['seo_description'] = strip_tags($this->configuration->contact_data->website_description);
 		$this->data['website_tags'] = $this->blog->get_blog_tags()->blog_tags; 
+	}
+
+	function set_title($title){
+		$this->data['seo_title'] = $title." - ".$this->data['seo_title'];
+	}
+	function set_description($description){
+		$this->data['seo_description'] = $description;
 	}
 
 	public function index()

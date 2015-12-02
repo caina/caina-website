@@ -4,6 +4,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
+      sass: {
+        files: 'assets/development/scss/{,*/}*.{scss,sass}',
+        tasks: ['sass']
+      },
       css: {
         files: [
           'assets/development/css/*.css'
@@ -20,6 +24,17 @@ module.exports = function(grunt) {
     },
     jshint: {
       all: ['Gruntfile.js', 'assets/js/custom.js']
+    },
+
+    sass: {                              
+      dist: {                            
+        options: {                       
+          style: 'expanded'
+        },
+        files: {                         
+          'assets/development/css/sass.css': 'assets/development/scss/custom.sass'
+        }
+      }
     },
 
     uglify: {
@@ -60,6 +75,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
 
   // Register the default tasks.
   grunt.registerTask('default', ['watch']);

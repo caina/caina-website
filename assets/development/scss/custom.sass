@@ -1,0 +1,438 @@
+/*Variaveis*/
+$background_body : "../images/patter_nice.png"
+$background_tiles: "../images/pattern_bg.jpg"
+
+$title_color: #222831
+$text_color: #393E46
+$contrast_color: #00ADB5
+$ligh_color: #EEEEEE
+
+$fontNormalSize : '9pt'
+$font_titles: 15pt
+$font_normal: 12pt
+$long_text_size: 10pt
+
+$font_famly: 'Montserrat', sans-serif
+
+/*tags variaveis*/
+$tag_bg_color: #756f5d
+$tag_color: #fff
+$tag_hover_background: #a38018
+$tag_item_color: #48453d
+
+
+/* 00 corpo*/
+body
+	background-image: url($background_body )
+	/*background-image: url("../images/wave.jpg")*/
+	/*background-color: #f2f2eb*/
+h1, h2,h3
+	font-weight: bold
+	color: $title_color
+h1, h2,h3,p,a
+	font-family: $font_famly
+.content-padding
+	padding: 20px 20px 0px 0px
+.bg-contrast
+	background-color: $contrast_color
+.bg-white
+	background-color: $ligh_color
+.bg-gray
+	background-color: #f7f7f7
+.no-padding
+	padding: 0px !important 
+.padding-100
+	padding: 100px
+.padding-50
+	padding: 50px
+.padding-20
+	padding: 20px
+.padding-10
+	padding: 10px
+p
+	color: $text_color
+
+
+
+/*MENU*/
+.menu-container-fluid
+	height: 350px
+.menu 
+	.content-padding
+		padding: 60px 20px 0px 0px
+	.navbar-right li a
+		padding: 10px 5px
+		transition: all .1s ease-in
+	.navbar-right li:hover a
+		padding: 4px 5px
+
+.nav>li
+	transition: all .2s ease-in
+.nav>li:hover
+	border-top: 3px solid $title_color
+	border-bottom: 3px solid $title_color
+.nav>li>a
+	color: #141414
+	letter-spacing: 2px
+	text-transform: uppercase
+	transition: all .1s ease-in
+	font-family: $font_famly
+.nav>li>a:focus, .nav>li>a:hover
+	background-color: none
+.nav>li:hover a
+	padding-top: 12px
+	padding-bottom: 12px
+
+
+/*BREADCRUMB*/
+
+.breadcrumb-custom 
+	ul
+		display: inline-block
+		list-style: none
+		padding: 0px !important
+	ul li
+		float: left
+		background: $title_color
+		padding: 5px
+		margin: 0px 5px
+		transition: all .1s ease-out
+	ul li a
+		color: $ligh_color
+		transition: all .1s ease-out
+	ul li a:hover
+		text-decoration: none
+		color: $contrast_color
+	ul li:hover
+		border-bottom: 5px solid $contrast_color
+		padding-bottom: 0px
+
+
+
+/* 02 -BLOG*/
+.left_side 
+	.entry_image::before
+		left: 0px
+		border-top: 10px solid transparent
+		border-bottom: 10px solid transparent
+		border-left: 10px solid $ligh_color
+.right_side
+	.entry_image::before
+		right: 0px
+		border-top: 10px solid transparent
+		border-bottom: 10px solid transparent 
+		border-right: 10px solid $ligh_color
+.blog_news_head .col-md-6
+	height: 390px
+.blog_tools_box
+	background-image: url($background_tiles)
+.entry_image
+	overflow: hidden
+	padding: 0px !important
+	max-height: 390px
+.blog-detail
+	margin-top: 30px
+	.title-data
+		background-color: $contrast_color
+		h1
+			color: $ligh_color
+	.post-entry
+		padding: 50px
+		p
+			color: $text_color
+			line-height: 25px
+			font-size: $long_text_size
+			text-align: justify
+		img
+			padding: 10px
+	.full-image
+		overflow: hidden
+		padding: 0px !important
+		img
+			width: 100%
+			height: 100%
+	.same-size
+		max-height: 300px
+
+
+/*AQUELA SETA NAS IMAGENS*/
+.entry_image::before
+	content: ''
+	position: absolute
+	width: 0
+	height: 0
+	top: 80px
+	z-index: 10
+.entry_image img
+	width: 100%
+	height: 100%
+	position: relative
+	z-index: 0
+.entry_title h3 a
+	color: $title_color
+	letter-spacing: 0.05em
+	text-transform: uppercase
+.entry_date
+	background: $contrast_color
+	padding: 3px
+	color: $ligh_color
+	a
+		color: $ligh_color
+		transition: all .1s ease-out
+	a:hover
+		color: $title_color
+
+
+
+
+/*03 ABOUT*/
+.full-picture
+
+.full-picture img
+	width: 100%
+.about-description
+	h1
+		text-transform: uppercase
+	span
+		font-size: 24px
+		text-align: justify
+		line-height: 38px
+		font-weight: 100
+		color: #727272
+.about-links
+	margin: 20px 0px
+.about-links .breadcrumb-custom ul li a
+	font-size: 20pt
+.featured_tech
+
+.featured_tech span:not(:first-child)
+	color: #fff
+	padding: 20px 0px 0px 0px
+	font-family: 'Montserrat', sans-serif
+	font-weight: 100
+	font-size: 10pt
+.featured_tech .col-md-6
+	padding: 30px
+	min-height: 200px
+.technology-description 
+	padding: 10px 40px
+	span
+		font-size: 18px
+		text-align: justify
+		line-height: 25px
+		font-weight: 100
+		color: #727272
+
+
+
+/*04 - PORTFOLIO*/
+.container-portfolio
+	margin-top: 40px
+	font-family: 'Montserrat', sans-serif
+	p
+		margin-top: 25px
+		font-size: 18px
+		text-align: justify
+		line-height: 25px
+		font-weight: 100
+		color: #727272
+	.portfolio-category
+		/*background-color: #727272*/
+		text-align: center
+		padding: 30px 5px
+		h2
+			padding: 0px
+			margin: 0px
+		a
+			color: #727272
+			font-family: 'Montserrat', sans-serif
+			font-weight: 100
+			font-size: 14pt
+			vertical-align: center
+	.image-pattern
+		background-color: $contrast_color
+		h1
+			color: $title_color
+		p
+			color: $text_color
+		.row
+			background: $ligh_color
+
+
+
+/*CONTATO*/
+.contact
+	margin-top: 20px
+	.contact-container
+		padding: 50px
+		color: $title_color
+		.btn
+			color: $ligh_color
+			background-color: $text_color
+		.btn:hover
+			color: $contrast_color
+			background-color: $title_color
+	.full-height
+		min-height: 300px
+	.col-md-4
+		img
+			width: 100%
+			height: 100%
+		overflow: hidden
+		padding-left: 0px
+		padding-right: 0px
+	.col-md-8
+		.about-text
+			background-color: $text_color
+			h1
+				color: $contrast_color
+			p
+				color: $ligh_color
+		.form-poll
+			padding: 20px
+			background-color: $contrast_color
+			legend
+				color: $ligh_color
+				border-bottom: 1px solid $ligh_color
+			label
+				color: $ligh_color
+			button
+				color: $ligh_color
+				background-color: $text_color
+				border-color: $text_color
+				transition: all .1s ease-out
+			button:hover
+				color: $contrast_color
+				background-color: $title_color
+	.social
+		min-height: 50px
+		.linkedin
+			position: relative
+			background-color: #1B86BD
+			min-height: 100px
+			color: $ligh_color
+			a
+				color: $ligh_color
+		.linkedin:before
+			content: "\f0e1"
+			font-family: FontAwesome
+			right: 43px
+			position: absolute
+			bottom: -24px
+			width: 20px
+			font-size: 50pt
+			transition: all .1s ease-out
+		.linkedin:hover:before
+			bottom: 0px
+		.github
+			position: relative
+			background-color: #F5F5F5
+			min-height: 100px
+			color: $title_color
+			a
+				color: $title_color
+		.github:hover:before
+			bottom: 0px
+		.github:before
+			content: "\f113"
+			font-family: FontAwesome
+			right: 43px
+			position: absolute
+			bottom: -24px
+			width: 20px
+			font-size: 50pt
+			transition: all .1s ease-out
+		.facebook:hover:before
+			bottom: 0px
+		.facebook
+			position: relative
+			background-color: #48649F
+			min-height: 100px
+			overflow: hidden
+			color: $ligh_color
+			a
+				color: $ligh_color
+		.facebook:before
+			content: "\f230"
+			font-family: FontAwesome
+			right: 43px
+			position: absolute
+			bottom: -24px
+			width: 20px
+			font-size: 50pt
+			transition: all .1s ease-out
+		.twitter
+			position: relative
+			background-color: #55ACEE
+			min-height: 100px
+			color: $ligh_color
+			a
+				color: $ligh_color
+		.twitter:hover:before
+			bottom: 0px
+		.twitter:before
+			content: "\f099"
+			font-family: FontAwesome
+			right: 43px
+			position: absolute
+			bottom: -24px
+			width: 20px
+			font-size: 50pt
+			transition: all .1s ease-out
+
+
+/* 10. RODAPÉ*/
+.footer
+	background-color: #212121
+	margin-top: 40px
+
+
+/*TAGS*/
+.item
+	color: $tag_item_color
+	margin-top: 30px
+	overflow: hidden
+
+.block-title
+	color: $tag_item_color
+	margin-bottom: 0px
+	font-size: 18px
+	margin-top: 0px
+	font-weight: 700
+	text-transform: uppercase
+
+.item-content-block
+	padding: 15px 0px
+	display: block
+.tags a
+	background-color: $tag_bg_color
+	padding: 10px
+	color: $tag_color
+	display: inline-block
+	font-size: 11px
+	text-transform: uppercase
+	line-height: 11px
+	border-radius: 2px
+	margin-bottom: 5px
+	margin-right: 2px
+	text-decoration: none
+
+.tags a:hover
+	background-color: $tag_hover_background
+
+
+
+ 
+/*MOBILE! em desenvolvimento*/
+/*MEDIA QUERY AQUI PRA TIRAR ESSE PADDING DO MOBILE*/
+@media screen and (min-width: 992px) 
+	.navbar .container-fluid
+		padding: 30px 30px
+	.padding-default-content
+		padding: 30px 30px
+	.container-blog .row 
+		display: -webkit-box
+		display: -webkit-flex
+		display: -ms-flexbox
+		display:         flex
+	
