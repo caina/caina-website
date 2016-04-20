@@ -7,18 +7,29 @@ class Blog extends DefaultController {
 		parent::__construct();
 		$this->data['current_page'] = "blog";
 		$this->load->model('Blog_model', 'blog');
-		$this->load->helper('Blog');
 		$this->load_widget();
 	}
 
 
 
-	
+
 
 	public function blog_home()
 	{	
-		$this->data['blog_posts'] = $this->blog->get_posts()->posts;
-		dump( $this->blog->pages_count);
+		$page = $this->input->get('p');
+		$query = $this->input->get('q');
+
+		$this->data['blog_posts'] = $this->blog->set_query($query)->set_page($page)->get_posts()->posts;
+		$this->data['blog_posts_pages'] = $this->blog->pages_count;
+		$this->data['current_page'] = $page;
+		$this->data['query'] = $query;
+
+		if(!empty($query)){
+			$this->add_breadcrumb(array("link"=>site_url("blog?q={$query}"),"text"=>$query));
+		}
+
+	// dump($this->data['blog_posts']);
+
 		$this->loadView("pages.blog.list_view");
 	}
 
@@ -33,13 +44,16 @@ class Blog extends DefaultController {
 		$this->load->model('Portfolio_model', 'portfolio');
 		$this->data['post'] =  $this->blog->get_post(url_to_id($post_title))->post;
 		
-		$this->data['portfolios'] = $this->portfolio->get_portfolio_by_tags($this->data['post']->tags_id)->portfolio;
-		// dump($this->data['portfolios']);
-
+		// $this->data['portfolios'] = $this->portfolio->get_portfolio_by_tags($this->data['post']->tags_id)->portfolio;
 		$this->set_title($this->data['post']->title);
 		$this->set_description($this->data['post']->eye);
+		
+		foreach ($this->data['post']->tags as $tag) {
+			$this->add_breadcrumb(array("link"=>$tag->link,"text"=>$tag->title));
+		}
 
-		// dump($this->data['post']);
+		$this->add_breadcrumb(array("link"=>$this->data['post']->link,"text"=>word_limiter($this->data['post']->title,3)));
+
 		$this->loadView("pages.blog.detail");
 	}
 

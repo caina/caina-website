@@ -7,6 +7,20 @@
 		<p>
 			<?php echo $blog->eye ?>
 		</p>
+		<?php if (isset($blog->tags)): ?>
+			<div class="blog_tags">
+				<div class="row">
+					<div class="col-md-12">
+					    <div class="item-content-block tags">
+					    	<?php foreach ($blog->tags as $tag): ?>
+					    		<a href="<?php echo $tag->link ?>" rel="tag"><?php echo $tag->title ?></a>
+					    	<?php endforeach ?>
+					    </div>
+                    </div>
+				</div>	
+			</div>
+		<?php endif ?>
+
 	</div>
 	<div class="col-md-6 entry_image">
 		<?php if ($blog->display_image): ?>

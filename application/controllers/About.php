@@ -19,7 +19,9 @@ class About extends DefaultController {
 		$this->data['technologies'] = $this->about->get_technologies()->technology;
 		$this->data['about'] = $this->about->about;
 		// dump($this->data['about']);
-
+		$this->add_breadcrumb(array("link"=>site_url("sobre"),"text"=>"Sobre"));
+		$this->data['contact_view'] = $this->load->view('caina/pages/contact/contact_view', $this->data, TRUE);
+		
 		$this->loadView("pages.about.about");		
 	}
 

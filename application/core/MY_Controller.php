@@ -9,10 +9,12 @@ class DefaultController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->data['configuration'] = $this->configuration->get_data()->contact_data;
-		
+		$this->data['poll'] = $this->configuration->get_poll()->poll;
 		$this->data['seo_title'] = $this->configuration->contact_data->website_title;
 		$this->data['seo_description'] = strip_tags($this->configuration->contact_data->website_description);
 		$this->data['website_tags'] = $this->blog->get_blog_tags()->blog_tags; 
+		$this->data['breadcrumb'] = array();
+		$this->add_breadcrumb(array("text"=>"Home","link"=>site_url()));
 	}
 
 	function set_title($title){
@@ -22,11 +24,13 @@ class DefaultController extends CI_Controller {
 		$this->data['seo_description'] = $description;
 	}
 
-	public function index()
-	{
-		
+	// apenas arrays
+	function add_breadcrumb($item){
+		if(is_array($item)){
+			$this->data['breadcrumb'][] = $item;
+		}
 	}
-
+	
 	public function loadView($view='',$display_menu=true)
 	{
 		$this->load->view($this->theme.'partial/head', $this->data);

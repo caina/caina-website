@@ -9,12 +9,12 @@ class Blog_model extends CI_Model {
 	private $query_param;
 	public $pages_count;
 	public $blog_tags;
-	private $itens_per_page = 4;
+	private $itens_per_page = 20;
 	private $post_id;
 
 
 	public function __construct(){
-		parent::__construct();
+	parent::__construct();
 	}
 
 	public function set_page($page){
@@ -33,33 +33,41 @@ class Blog_model extends CI_Model {
 	}
 
 	public function set_query($query){
-		$this->query_param = "'%".str_replace(" ", "%", $query)."%'";
+		if(empty($query)){
+			return $this;
+		}
+		$is_tag = $this->db->from('blog_category')->where("title like", "%".str_replace("-", "%", $query)."%")->get();
+		if($is_tag->num_rows() > 0){
+			$is_tag = $is_tag->row();
+			$this->query_param = array("blog_post_category.id_blog_category" =>$is_tag->id);
+		}else{
+			$this->query_param = array("title like" => "'%".str_replace(" ", "%", $query)."%'");
+		}
 		return $this;
 	}
 
 	public function get_posts(){
 		
 		$this->db->start_cache();
-		
+		$this->db->select("blog_post.*");
 		$this->db->from('blog_post');
-		$this->db->where('blog_post.id_blog_post', '0');
-		$this->db->where('blog_post.action', '1', FALSE);
-		
+		$this->db->join('blog_post_category', 'blog_post_category.id_blog_post = blog_post.id', 'left');
+		$this->db->where('blog_post.id_blog_post', 0,false);
+		$this->db->where('blog_post.action', 1, FALSE);
 		if(!empty($this->query_param)){
-			$this->db->where('title like', $this->query_param, FALSE);
+			$this->db->where($this->query_param, FALSE,FALSE);
 		}
 
 		if(!empty($this->post_id)){
 			$this->db->where('blog_post.id', $this->post_id, FALSE);
 		}
-
+		$this->db->group_by('blog_post.id');
 		$this->db->stop_cache();
-		$this->pages_count = $this->db->get()->num_rows;
+		$this->pages_count = round($this->db->get()->num_rows() / $this->itens_per_page);
 		$this->db->order_by('blog_post.id', 'desc');
 		$this->db->limit($this->itens_per_page, $this->page * $this->itens_per_page);
 		$this->posts = $this->db->get()->result();
 		$this->db->flush_cache();
-
 		return $this->prepare_data();
 	}
 
@@ -119,9 +127,15 @@ class Blog_model extends CI_Model {
 			$result->formated_date = date("M d, Y",strtotime($result->post_date));
 			$result->eye = word_limiter(strip_tags($result->entry), 50);
 			$result->display_image = !empty($result->cover_photo);
+			$result->tags = $this->set_post($result)->get_tags()->post->tags;
+
 		}
 		return $this;
+	}
 
+	function set_post($post_object){
+		$this->post = $post_object;
+		return $this;
 	}
 
 

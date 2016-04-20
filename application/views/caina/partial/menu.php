@@ -1,4 +1,4 @@
-<div class="container-fluid menu-container-fluid parallax-window" data-parallax="scroll" data-image-src="<?php echo image_url("background_website.png") ?>">
+<div class="container-fluid menu-container-fluid parallax-window" data-parallax="scroll" data-image-src="<?php echo image_url($configuration->banner) ?>">
 	<div class="container">
 		<div class="row menu">
 			<div class="col-md-12 content-padding">
@@ -12,7 +12,6 @@
 			              <span class="icon-bar"></span>
 			              <span class="icon-bar"></span>
 			            </button>
-			            <a class="navbar-brand" href="#">Logo</a>
 			          </div>
 			          <div id="navbar" class="navbar-collapse collapse">
 			            <ul class="nav navbar-nav">
@@ -33,17 +32,13 @@
 			</div>
 			<div class="col-md-12 breadcrumb-custom no-padding">
 				<ul>
-					<li>
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Blog</a>
-					</li>
-					<li>
-						<a href="#">detalhe post</a>
-					</li>
+					<?php foreach ($breadcrumb as $bread): ?>
+						<li>
+							<?php echo anchor($bread["link"], $bread["text"]); ?>
+						</li>
+					<?php endforeach ?>
 				</ul>
 			</div>
-		</div>
-	</div>
-</div>	
+		</div> 
+	</div> 
+</div>

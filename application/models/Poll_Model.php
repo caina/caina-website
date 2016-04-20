@@ -20,8 +20,6 @@ class Poll_Model extends CI_Model {
 			throw new Exception("Poll needs an position", 1);
 		}
 
-		
-
 	}
 }
 

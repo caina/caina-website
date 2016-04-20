@@ -1,5 +1,6 @@
 /*Variaveis*/
-$background_body : "../images/patter_nice.png"
+$background_body : "../images/patterns/PIJWrEi.jpg"
+$footer_image: "../images/patterns/6ghgesn.jpg"
 $background_tiles: "../images/pattern_bg.jpg"
 
 $title_color: #222831
@@ -7,18 +8,18 @@ $text_color: #393E46
 $contrast_color: #00ADB5
 $ligh_color: #EEEEEE
 
-$fontNormalSize : '9pt'
-$font_titles: 15pt
+$font_list_titles: 13pt
+$font_list_text : 10pt
 $font_normal: 12pt
 $long_text_size: 10pt
 
 $font_famly: 'Montserrat', sans-serif
 
 /*tags variaveis*/
-$tag_bg_color: #756f5d
-$tag_color: #fff
-$tag_hover_background: #a38018
-$tag_item_color: #48453d
+$tag_bg_color: #222831
+$tag_color: #EEEEEE
+$tag_hover_background: #393E46
+$tag_item_color: #00ADB5
 
 
 /* 00 corpo*/
@@ -51,12 +52,29 @@ h1, h2,h3,p,a
 	padding: 10px
 p
 	color: $text_color
-
+.btn-info
+	background-color: $title_color
+	color: $contrast_color
+	transition: all .1s ease-in
+	border-color: $title_color
+.btn-info:hover
+	background-color: $contrast_color
+	color: $title_color
+a:hover
+	tex-decoration: none !important
+.padding-default-content
+	p
+		font-size: $font_list_text
+.list-inline
+	display: block
+	li
+		display: inline-block
 
 
 /*MENU*/
 .menu-container-fluid
 	height: 350px
+	border-bottom: 5px solid $title_color
 .menu 
 	.content-padding
 		padding: 60px 20px 0px 0px
@@ -142,7 +160,7 @@ p
 			color: $text_color
 			line-height: 25px
 			font-size: $long_text_size
-			text-align: justify
+			text-align: left
 		img
 			padding: 10px
 	.full-image
@@ -153,6 +171,25 @@ p
 			height: 100%
 	.same-size
 		max-height: 300px
+.container-blog
+	.custom-pagination
+		margin: 10px 0px
+		padding: 5px 0px
+		li
+			a
+				padding: 10px 15px
+				background-color: $title_color
+				color: $contrast_color
+				transition: all .1s ease-out
+				font-size: 15pt
+			a:hover
+				tex-decoration: none
+				background-color: $contrast_color
+				color: $title_color
+		.active a
+			background-color: $contrast_color
+			color: $title_color
+
 
 
 /*AQUELA SETA NAS IMAGENS*/
@@ -170,8 +207,10 @@ p
 	z-index: 0
 .entry_title h3 a
 	color: $title_color
-	letter-spacing: 0.05em
+	letter-spacing: 0.02em
 	text-transform: uppercase
+	font-family: $font_famly
+	font-size: $font_list_titles
 .entry_date
 	background: $contrast_color
 	padding: 3px
@@ -194,13 +233,14 @@ p
 	h1
 		text-transform: uppercase
 	span
-		font-size: 24px
-		text-align: justify
-		line-height: 38px
+		font-size: 16px
+		text-align: left
+		line-height: 30px
 		font-weight: 100
 		color: #727272
 .about-links
 	margin: 20px 0px
+	margin-left: -20px
 .about-links .breadcrumb-custom ul li a
 	font-size: 20pt
 .featured_tech
@@ -218,7 +258,7 @@ p
 	padding: 10px 40px
 	span
 		font-size: 18px
-		text-align: justify
+		text-align: left
 		line-height: 25px
 		font-weight: 100
 		color: #727272
@@ -229,10 +269,23 @@ p
 .container-portfolio
 	margin-top: 40px
 	font-family: 'Montserrat', sans-serif
+	.row-img
+		overflow: hidden
+		padding: 0px !important
+		img
+			width: 100%
+			height: 100%
+	.row-separeted
+		margin-top: 30px
+		iframe, img
+			padding: 10px
+	.current
+		color: $title_color
+		background-color: $contrast_color
 	p
 		margin-top: 25px
-		font-size: 18px
-		text-align: justify
+		font-size: $font_list_text
+		text-align: left
 		line-height: 25px
 		font-weight: 100
 		color: #727272
@@ -257,8 +310,18 @@ p
 			color: $text_color
 		.row
 			background: $ligh_color
-
-
+.portfolio-detail-container
+	padding: 10px 0px
+.blog-portfolio
+	margin-top: 20px
+.blog-detail
+	.row
+		.col-md-12
+			padding: 20px
+		.date
+			color: $contrast_color
+			background-color: $title_color
+			padding: 5px
 
 /*CONTATO*/
 .contact
@@ -281,6 +344,7 @@ p
 		overflow: hidden
 		padding-left: 0px
 		padding-right: 0px
+		max-height: 930px
 	.col-md-8
 		.about-text
 			background-color: $text_color
@@ -383,8 +447,41 @@ p
 
 /* 10. RODAPÉ*/
 .footer
-	background-color: #212121
-	margin-top: 40px
+	/*background-color: #212121*/
+	border-top: 5px solid $contrast_color
+	background-image: url($footer_image)
+	margin-top: 20px
+	#instafeed
+		height: 150px
+		overflow: hidden
+		text-align: center
+		a:hover
+			opacity: 0.6
+			filter: alpha(opacity=60)
+	.menus-list
+		list-style: none
+		padding: 20px 0px
+		li
+			padding: 5px 0px
+			a
+				color: $ligh_color
+				transition: all .1s ease-out
+			a:hover
+				text-decoration: none
+				border-bottom: 5px solid $contrast_color
+	.social
+		padding: 20px 0px
+		margin-bottom: 40px
+		text-align: right
+		li
+			margin-right: 10px
+			a
+				color: $ligh_color
+				transition: all .1s ease-out
+			a:hover
+				color: $contrast_color
+
+
 
 
 /*TAGS*/
@@ -400,10 +497,16 @@ p
 	margin-top: 0px
 	font-weight: 700
 	text-transform: uppercase
+.blog_tags 
+	.item-content-block
+		padding: 0px !important
 
 .item-content-block
 	padding: 15px 0px
 	display: block
+.blog_tags
+	.tags a
+		padding: 5px !important
 .tags a
 	background-color: $tag_bg_color
 	padding: 10px
@@ -416,10 +519,11 @@ p
 	margin-bottom: 5px
 	margin-right: 2px
 	text-decoration: none
-
+	transition: all .1s ease-out
 .tags a:hover
 	background-color: $tag_hover_background
-
+	border-bottom: 2px solid $contrast_color
+	padding-bottom: 5px
 
 
  
@@ -429,7 +533,7 @@ p
 	.navbar .container-fluid
 		padding: 30px 30px
 	.padding-default-content
-		padding: 30px 30px
+		padding: 25px
 	.container-blog .row 
 		display: -webkit-box
 		display: -webkit-flex

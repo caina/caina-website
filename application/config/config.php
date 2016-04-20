@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['development'] = true;
+$config['development'] = false;
+$config['company_code']	= '43';
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

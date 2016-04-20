@@ -1,13 +1,4 @@
 <div class="container">
-	<div class="row about-links">
-		<div class="col-md-12 breadcrumb-custom no-padding">
-			<ul>
-				<li> <a href="#">Sobre</a> </li>
-				<li> <a href="#">Técnologias</a> </li>
-				<li> <a href="#">Curriculo</a> </li>
-			</ul>
-		</div>
-	</div>
 	<div class="row bg-white">
 		<div class="col-md-4 full-picture no-padding">
 			<img src="<?php echo image_url($about->profile_photo) ?>">
@@ -64,3 +55,5 @@
 		</div>
 	</div>
 </div>
+
+<?php echo $contact_view ?>

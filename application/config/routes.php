@@ -52,7 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route['']
 $route['default_controller'] 			= 'blog/blog_home';
 $route["sobre"]							= "about/index";
+$route["blog"]							= 'blog/blog_home';
 $route["blog/(:any)"]					= 'blog/blog_post_detail/$1';
+
 $route['portfolio/tecnologia'] 			= 'portfolio/development_language';
 $route['portfolio/tecnologia/(:any)']   = 'portfolio/development_language_list/$1';
 $route["portfolio/(:any)"]				= "portfolio/portfolio_category/$1";

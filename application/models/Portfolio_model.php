@@ -145,10 +145,10 @@ where technology.title like '%c%'
 
 	function format_portfolio(){
 		foreach ($this->portfolio as &$portfolio) {
-			$portfolio->eye = word_limiter(strip_tags($portfolio->description),40);
+			$portfolio->eye = word_limiter(strip_tags($portfolio->description),30);
 			$portfolio->formated_date = anchor(site_url("portfolio/".strtourl($portfolio->category)), $portfolio->category);
 			$portfolio->cover_photo_path = image_url($portfolio->cover_image,400,400);
-			$portfolio->link = site_url("portfolio/".strtourl($portfolio->category)."/".strtourl($portfolio->title));
+			$portfolio->link = site_url("portfolio/".strtourl($portfolio->category)."/".strtourl($portfolio->title)."#conteudo");
 			$portfolio->display_image = true;
 		}
 		return $this;
