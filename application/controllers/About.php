@@ -6,7 +6,7 @@ class About extends DefaultController {
 	{
 		parent::__construct();
 		$this->data['current_page'] = "about";
-		$this->load->model('About_model','about');
+		$this->load->model('sobre_model','about');
 
 		 $this->about->get_about();
 
