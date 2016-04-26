@@ -31,7 +31,7 @@
 			    <!-- FIM MENU -->
 			</div>
 			<div class="col-md-12 breadcrumb-custom no-padding">
-				<ul>
+				<ul itemprop="breadcrumb">
 					<?php foreach ($breadcrumb as $bread): ?>
 						<li>
 							<?php echo anchor($bread["link"], $bread["text"]); ?>

@@ -34,4 +34,4 @@
       ga('send', 'pageview');
     </script>
   </head>
-  <body>
+  <body itemscope itemtype="http://schema.org/WebPage">

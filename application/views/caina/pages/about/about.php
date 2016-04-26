@@ -1,12 +1,13 @@
-<div class="container">
+<div class="container" itemscope itemtype="http://schema.org/Person">
 	<div class="row bg-white">
 		<div class="col-md-4 full-picture no-padding">
-			<img src="<?php echo image_url($about->profile_photo) ?>">
+			<img src="<?php echo image_url($about->profile_photo) ?>" itemprop="image">
 		</div>
 		<div class="col-md-8 about-description padding-100">
-			<h1>
+			<h1 itemprop="name">
 				<?php echo $about->about_title ?>
 			</h1>
+			<meta itemprop="jobTitle" content="Software Developer"></meta>
 			<span>
 				<?php echo $about->about_text ?>
 			</span>
@@ -43,10 +44,10 @@
 			<div class="row">
 				<?php foreach ($technologies as $tec):?>
 					<?php if($tec->is_featured==1){continue;} ?>
-					<div class="col-md-3 padding-10" style="background-color:<?php echo $tec->background_color ?>">
+					<div class="col-md-2 padding-10" style="background-color:<?php echo $tec->background_color ?>">
 						<a href="<?php echo $tec->link ?>" rel="tag">
 							<span class="col-md-12">
-								<img src="<?php echo image_url($tec->logo,100,100) ?>">
+								<img src="<?php echo image_url($tec->logo,80,80) ?>">
 							</span>
 						</a>
 					</div>
