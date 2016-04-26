@@ -75,7 +75,7 @@ $localList = array(
     '127.0.0.1',
     '::1'
 );
-$active_group =  in_array($_SERVER['REMOTE_ADDR'], $localList)?"local":"default";
+$active_group =  "default";//in_array($_SERVER['REMOTE_ADDR'], $localList)?"local":"default";
 $query_builder = TRUE;
 $db['local'] = array(
 	'dsn'	=> '',
