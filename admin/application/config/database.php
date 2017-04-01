@@ -49,9 +49,9 @@ $active_group = "default";// apache_request_headers()["Host"]=="localhost"?'defa
 $active_record = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql857.umbler.com',
-	'username' => 'caina27',
-	'password' => 'C0nn3c71v3',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
 	'database' => 'caina',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
