@@ -101,10 +101,10 @@ $db['local'] = array(
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql857.umbler.com',
-	'username' => 'caina27',
-	'password' => 'C0nn3c71v3',
-	'database' => 'caina',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
+	'database' => '',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
